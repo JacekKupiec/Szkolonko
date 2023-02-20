@@ -41,6 +41,12 @@
             Console.Write("Podaj nazwę figury: ");
             var nazwaFigury = Console.ReadLine();
 
+            // funkcja wewnętrzna
+            string ZlaczTeksty(string x, string y)
+            {
+                return x + y;
+            }
+
             switch (nazwaFigury)
             {
                 case "kwadrat":
