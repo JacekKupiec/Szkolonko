@@ -64,9 +64,9 @@ ulong FibonacciIter(ulong n)
         return 1;
     }
 
-    ulong f1 = 0, f2 = 1, f = 0;
+    ulong f1 = 1, f2 = 0, f = 0;
 
-    for (ulong i = 1; i <= n; i = i + 1)
+    for (ulong i = 2; i <= n; i = i + 1)
     {
         f = f1 + f2;
         f2 = f1;
