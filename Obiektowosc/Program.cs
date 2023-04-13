@@ -5,6 +5,16 @@
         struct Wektor
         {
             public double x, y;
+
+            public double Dlugosc()
+            {
+                return Math.Sqrt(x * x + y * y);
+            }
+        }
+
+        class GospodarzKlasy : Uczen
+        {
+
         }
 
         class Uczen
@@ -36,12 +46,42 @@
             public string Imie;
             public string Nazwisko;
             public DateOnly DataUrodzenia;
-            int Klasa;
+            protected double srednica;
+            private int Klasa;
+
+            public static byte liczbaKotow = 5;
+
+            public virtual void Donies(string imieNauczyciela)
+            {
+                if (srednica < 17 && liczbaKotow > 5)
+                {
+                    Console.WriteLine($"Proszę pani!!! {imieNauczyciela}");
+                    Nazwisko += "-Konfident";
+                    Klasa = 30;
+                }
+            }
+
+            public static int SredniaOcen(string imieNauczyciela)
+            {
+                return (liczbaKotow*Klasa + imieNauczyciela.GetHashCode()) % 6 + 1;
+            }
         }
 
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
+
+            var v1 = new Wektor();
+            v1.x = 4;
+            v1.y = 5;
+
+            var v2 = new Wektor
+            {
+                x = 4,
+                y = 5
+            };
+
+            Console.WriteLine(v1.Dlugosc());
 
             var imieUczen1 = "Jacek";
             var nazwiskoUczen1 = "Kupiec";
@@ -52,10 +92,12 @@
 
             var uczenObiektPusty = (Uczen)null;
 
+            Uczen.liczbaKotow = 7; // dostęp do statycznego pola, anty-pattern, nie robić tak
+
             // uczenObiektPusty.Imie - rzuca wyjątek NullReferenceException
 
             var uczenObiekt = new Uczen();
-            uczenObiekt.
+            uczenObiekt.DataUrodzenia.AddDays(1);
         }
     }
 }
