@@ -49,3 +49,6 @@ for (int i = 0; i < 10; i++)
 {
 
 }
+
+// Operator trójargumentowy (ternarny)
+var m = w > 0 && w % 7 == 0 ? w : -w;
